@@ -1,7 +1,7 @@
-import React from 'react';
-import { ShoppingCart, Package, MapPin } from 'lucide-react';
-import { Product } from '../types';
-import { EcoRating } from './EcoRating';
+import React from "react";
+import { ShoppingCart, Package, MapPin } from "lucide-react";
+import { Product } from "../types";
+import { EcoRating } from "./EcoRating";
 
 interface ProductCardProps {
   product: Product;
@@ -28,18 +28,18 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
           <EcoRating rating={product.ecoRating} size="sm" />
         </div>
       </div>
-      
+
       <div className="p-4">
         <div className="flex items-start justify-between mb-2">
           <h3 className="font-semibold text-gray-900 text-lg leading-tight">
             {product.name}
           </h3>
         </div>
-        
+
         <p className="text-gray-600 text-sm mb-3 line-clamp-2">
           {product.description}
         </p>
-        
+
         <div className="space-y-2 mb-4">
           <div className="flex items-center text-xs text-gray-500">
             <Package className="w-3 h-3 mr-1" />
@@ -50,7 +50,7 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
             {product.origin}
           </div>
         </div>
-        
+
         <div className="flex flex-wrap gap-1 mb-4">
           {product.ecoFeatures.slice(0, 2).map((feature, index) => (
             <span
@@ -66,19 +66,19 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
             </span>
           )}
         </div>
-        
+
         <div className="flex items-center justify-between">
           <div className="text-xl font-bold text-gray-900">
-            {product.price.toLocaleString()} ₸
+            {product.price.toLocaleString()} сом
           </div>
-          
+
           <button
             onClick={() => onAddToCart(product)}
             disabled={!product.inStock}
             className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-semibold transition-all duration-200 ${
               product.inStock
-                ? 'bg-green-600 hover:bg-green-700 text-white shadow-md hover:shadow-lg'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                ? "bg-green-600 hover:bg-green-700 text-white shadow-md hover:shadow-lg"
+                : "bg-gray-300 text-gray-500 cursor-not-allowed"
             }`}
           >
             <ShoppingCart className="w-4 h-4" />
